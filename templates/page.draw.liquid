@@ -1,0 +1,76 @@
+ <style>
+        #bg {
+            width: 650px;
+            height: 600px;
+            margin: 0 auto;
+            background: url({{ 'turntable-bg.jpg ' | asset_url }}) no-repeat;
+            position: relative;
+        }
+
+        img.pointer {
+            position: absolute;
+            z-index: 10;
+            top: 155px;
+            left: 247px;
+        }
+
+        img.turntable {
+            position: absolute;
+            z-index: 5;
+            top: 60px;
+            left: 116px;
+            transition: all 4s;
+        }
+    </style>
+     <div id="bg"><img src="{{ 'pointer.png' | asset_url }}" alt="pointer" class="pointer"><img class="turntable" src="{{ 'turntable.png' | asset_url }}" alt="turntable"></div>
+    
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+      $(function(){
+        var prize = getType();
+        var oPointer = document.getElementsByTagName("img")[0];
+        var oTurntable = document.getElementsByTagName("img")[1];
+        var offOn = true; 
+    
+        oPointer.onclick = function () {
+            if (offOn) {
+                offOn = !offOn;
+                ratating();
+            }else{
+              
+            }
+        }
+
+        function getType () {
+          $.ajax({
+            url:"https://admin.vograce.com/lucky-draw?name=szf",
+            async:false,
+            type:'get',
+            dataType:"json",
+            success:function(response){
+              
+            },
+            error:function(){
+              offOn = false;
+            }
+          });
+        }
+
+        function calculateDegree(p) {
+            var base = 360*4;
+            var cat = 51.4; 
+            return base - p * cat  -  30;
+        }
+     
+        function ratating() {
+            timer = setTimeout(function () {
+                transformRotate = calculateDegree(prize); 
+                oTurntable.style.transform = "rotate(" + transformRotate + "deg)";
+            }, 30);
+        }
+    });
+    </script>
+
+
+  
