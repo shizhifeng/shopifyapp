@@ -344,11 +344,11 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-
+{% comment %} 
     {% assign my_variable1 = "tomato1" -%}
     {{ my_variable1 }}
 
     {%- assign my_variable2 = "tomato2" -%}
-    {{ my_variable2 }}
+    {{ my_variable2 }} {% endcomment %}
   </body>
 </html>
