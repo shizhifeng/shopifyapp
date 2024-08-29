@@ -351,8 +351,10 @@
     {%- assign my_variable2 = "tomato2" -%}
     {{ my_variable2 }} {% endcomment %}
 
-    {% form 'customer_login' %}
+    {% comment %} {% form 'customer_login' %}
       form_content
-    {% endform %}
+    {% endform %} {% endcomment %}
+
+    
   </body>
 </html>
