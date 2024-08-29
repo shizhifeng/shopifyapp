@@ -343,5 +343,10 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    This is my body bottom2
+    {% assign my_variable = "tomato" %}
+    {{ my_variable }}
+    This is my body bottom1
   </body>
 </html>
