@@ -355,7 +355,7 @@
       form_content
     {% endform %} {% endcomment %}
 
-    {%liquid
+    {% comment %} {%liquid
       echo 'common';
       # this is comment
     assign title =  page.title 
@@ -366,7 +366,7 @@
       echo 'this is diy lucky page'
       else
     endcase
-    %}
+    %} {% endcomment %}
 
   </body>
 </html>
