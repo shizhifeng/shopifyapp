@@ -331,42 +331,9 @@
       };
     </script>
 
-
-
-    <script>
-      console.log('this is theme js');
-      const title = `{{ page.title }}`;
-      console.log('title',title);
-    </script>
-
-
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
-{% comment %} 
-    {% assign my_variable1 = "tomato1" -%}
-    {{ my_variable1 }}
-
-    {%- assign my_variable2 = "tomato2" -%}
-    {{ my_variable2 }} {% endcomment %}
-
-    {% comment %} {% form 'customer_login' %}
-      form_content
-    {% endform %} {% endcomment %}
-
-    {% comment %} {%liquid
-      echo 'common';
-      # this is comment
-    assign title =  page.title 
-    echo title 
-
-    case title
-    when 'lucky'
-      echo 'this is diy lucky page'
-      else
-    endcase
-    %} {% endcomment %}
 
   </body>
 </html>
